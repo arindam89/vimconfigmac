@@ -2,7 +2,7 @@
 
 Yup... it's a vim configuration.
 
-
+`
 Usage:
 Open Terminal
 cd ~
@@ -14,5 +14,5 @@ Optional:
 
 Install the supercool font,
 http://levien.com/type/myfonts/Inconsolata.otf
-
+`
 .. And you are all Done!! Enjoy!
