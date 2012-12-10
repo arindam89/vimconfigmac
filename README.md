@@ -1,18 +1,3 @@
-# Arindam Paul's Vim Configuration for mac
+# Derek Wyatt's Vim Configuration
 
 Yup... it's a vim configuration.
-
-<pre>
-Usage:
-Open Terminal
-cd ~
-git clone https://github.com/arindam89/vimconfigmac.git
-mv vimconfigmac .vim   #rename the folder to .vim
-vim .vimrc #put  so ~/.vim/vimrc
-
-Optional: 
-
-Install the supercool font,
-http://levien.com/type/myfonts/Inconsolata.otf
-</pre>
-.. And you are all Done!! Enjoy!

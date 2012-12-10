@@ -14,6 +14,11 @@ filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+
+"Fuzzy Finder
+"
+map ,f :FufFile **/<CR>
+
 " Add xptemplate global personal directory value
 if has("unix")
   set runtimepath+=~/.vim/xpt-personal
@@ -25,9 +30,9 @@ filetype plugin on
 filetype indent on
 
 " Tabstops are 4 spaces
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set expandtab
 set autoindent
 
@@ -121,7 +126,7 @@ set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 
 " When the page starts to scroll, keep the cursor 8 lines from the top and 8
 " lines from the bottom
-set scrolloff=8
+" set scrolloff=8
 
 " Allow the cursor to go in to "invalid" places
 set virtualedit=all
@@ -139,7 +144,7 @@ set complete=.,w,b,t
 set showfulltag
 
 " Set the textwidth to be 80 chars
-set textwidth=80
+" set textwidth=80
 
 " get rid of the silly characters in separators
 set fillchars = ""
@@ -178,6 +183,21 @@ autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
 
+
+" Add a function to reload the snippets without a restart
+
+function! ReloadSnippets( snippets_dir, ft )
+    if strlen( a:ft ) == 0
+        let filetype = "_"
+    else
+        let filetype = a:ft
+    endif
+
+    call ResetSnippets()
+    call GetSnippets( a:snippets_dir, filetype )
+endfunction
+
+nmap ,rr :call ReloadSnippets(snippets_dir, &filetype)<CR>
 
 
 " dictionary for english words
@@ -414,10 +434,10 @@ set tags=
 " NERD Tree Plugin Settings
 "-----------------------------------------------------------------------------
 " Toggle the NERD Tree on an off with F7
-nmap <F7> :NERDTreeToggle<CR>
+nmap <F7> :NERDTreeTabsToggle<CR>
 
 " Close the NERD Tree with Shift-F7
-nmap <S-F7> :NERDTreeClose<CR>
+nmap <S-F7> :NERDTreeMirrorToggle<CR>
 
 " Show the bookmarks table on startup
 let NERDTreeShowBookmarks=1
@@ -777,5 +797,5 @@ syntax enable
 set background=dark
 colorscheme solarized
 
-set gfn=Lucida\ Sans\ Typewriter\ Regular:h16
+set gfn=Inconsolata:h14
 nohls
